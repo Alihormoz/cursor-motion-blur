@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Windows Theme — Modern Windows Experience</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050505;
+      --bg-soft: #0b0b0b;
+      --card: #101010;
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #ffffff;
+      --muted: #999;
+      --accent: #5ac8ff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 7%;
+
+      background: rgba(5, 5, 5, 0.75);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 7px;
+
+      background: linear-gradient(
+        135deg,
+        #4cc2ff,
+        #1473ff
+      );
+
+      font-size: 16px;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav .links a {
+      color: #999;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    nav .links a:hover {
+      color: white;
+    }
+
+    .github-nav {
+      padding: 9px 17px;
+
+      border: 1px solid var(--border);
+      border-radius: 7px;
+
+      font-size: 13px;
+
+      transition: 0.25s;
+    }
+
+    .github-nav:hover {
+      background: white;
+      color: black;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 120px 20px 80px;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      border-radius: 50%;
+
+      background: rgba(35, 150, 255, 0.12);
+
+      filter: blur(120px);
+
+      top: 10%;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-block;
+
+      padding: 7px 14px;
+
+      border: 1px solid rgba(90, 200, 255, 0.25);
+
+      border-radius: 100px;
+
+      color: var(--accent);
+
+      font-size: 12px;
+
+      margin-bottom: 25px;
+
+      background: rgba(90, 200, 255, 0.05);
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 88px);
+
+      line-height: 1.02;
+
+      letter-spacing: -4px;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(
+        90deg,
+        #fff,
+        #6bcfff
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 13px 23px;
+
+      border-radius: 7px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.25s;
+    }
+
+    .primary {
+      background: white;
+      color: black;
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      background: #ddd;
+    }
+
+    .secondary {
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .secondary:hover {
+      background: #111;
+      border-color: #333;
+    }
+
+    /* PREVIEW */
+
+    .preview {
+      max-width: 1050px;
+
+      margin: -20px auto 120px;
+
+      padding: 0 20px;
+    }
+
+    .preview-window {
+      height: 500px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+
+      background: #0b0d10;
+
+      box-shadow:
+        0 40px 100px rgba(0,0,0,.55);
+
+      overflow: hidden;
+    }
+
+    .window-bar {
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+
+      padding: 0 15px;
+
+      border-bottom: 1px solid var(--border);
+
+      background: #111317;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: #444;
+    }
+
+    .window-content {
+      height: calc(100% - 42px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #172331 0%,
+          #090b0e 55%,
+          #050505 100%
+        );
+    }
+
+    .windows-logo {
+      width: 100px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 5px;
+
+      transform: skewY(-5deg);
+    }
+
+    .windows-logo div {
+      height: 45px;
+
+      background: #48bfff;
+    }
+
+    /* SECTIONS */
+
+    section.content-section {
+      max-width: 1050px;
+
+      margin: 0 auto;
+
+      padding: 100px 20px;
+    }
+
+    .section-label {
+      color: var(--accent);
+
+      font-size: 12px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 42px;
+
+      letter-spacing: -1.5px;
+
+      margin-bottom: 15px;
+    }
+
+    .section-description {
+      color: var(--muted);
+
+      max-width: 600px;
+
+      margin-bottom: 45px;
+    }
+
+    /* FEATURES */
+
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+    .feature {
+      padding: 28px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      border-radius: 10px;
+
+      transition: 0.25s;
+    }
+
+    .feature:hover {
+      transform: translateY(-4px);
+
+      border-color: #333;
+    }
+
+    .feature-icon {
+      font-size: 25px;
+
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      font-size: 17px;
+
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #888;
+
+      font-size: 14px;
+    }
+
+    /* INSTALL */
+
+    .install-box {
+      background: #0c0c0c;
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      overflow: hidden;
+    }
+
+    .install-header {
+      padding: 15px 20px;
+
+      border-bottom: 1px solid var(--border);
+
+      color: #aaa;
+
+      font-size: 13px;
+    }
+
+    pre {
+      padding: 25px;
+
+      overflow-x: auto;
+
+      color: #ccc;
+
+      font-family: Consolas, monospace;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+    .command {
+      color: #65c9ff;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+
+      padding: 120px 20px;
+    }
+
+    .cta h2 {
+      font-size: 45px;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 7%;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      color: #666;
+
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 750px) {
+
+      nav {
+        padding: 0 5%;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      .github-nav {
+        display: none;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .preview-window {
+        height: 350px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .cta h2 {
+        font-size: 35px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+```
+<a href="#" class="logo">
+  <span class="logo-icon">⊞</span>
+  Windows Theme
+</a>
+
+<div class="links">
+  <a href="#features">Features</a>
+  <a href="#preview">Preview</a>
+  <a href="#install">Install</a>
+</div>
+
+<a
+  href="https://github.com/"
+  target="_blank"
+  class="github-nav"
+>
+  GitHub ↗
+</a>
+```
+
+  </nav>
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+```
+<div class="hero-content">
+
+  <div class="badge">
+    Open Source · Windows Theme
+  </div>
+
+  <h1>
+    Windows,
+    <span>reimagined.</span>
+  </h1>
+
+  <p>
+    A clean and modern Windows-inspired theme designed
+    for a minimal, elegant and distraction-free desktop
+    experience.
+  </p>
+
+  <div class="hero-buttons">
+
+    <a
+      href="https://github.com/"
+      target="_blank"
+      class="button primary"
+    >
+      View on GitHub
+    </a>
+
+    <a
+      href="#install"
+      class="button secondary"
+    >
+      Get Started
+    </a>
+
+  </div>
+
+</div>
+```
+
+  </header>
+
+  <!-- PREVIEW -->
+
+  <section class="preview" id="preview">
+
+```
+<div class="preview-window">
+
+  <div class="window-bar">
+
+    <div class="dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
+
+  <div class="window-content">
+
+    <div class="windows-logo">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="content-section" id="features">
+
+```
+<div class="section-label">
+  Features
+</div>
+
+<h2 class="section-title">
+  Designed to stay out of your way.
+</h2>
+
+<p class="section-description">
+  Everything focuses on keeping the Windows experience
+  clean, consistent and comfortable to use.
+</p>
+
+<div class="features">
+
+  <article class="feature">
+
+    <div class="feature-icon">◐</div>
+
+    <h3>Dark by default</h3>
+
+    <p>
+      A carefully balanced dark interface that looks
+      great in both bright and low-light environments.
+    </p>
+
+  </article>
+
+
+  <article class="feature">
+
+    <div class="feature-icon">✦</div>
+
+    <h3>Clean design</h3>
+
+    <p>
+      Minimal elements, consistent spacing and subtle
+      details without unnecessary visual clutter.
+    </p>
+
+  </article>
+
+
+  <article class="feature">
+
+    <div class="feature-icon">⚡</div>
+
+    <h3>Lightweight</h3>
+
+    <p>
+      Built with a focus on simplicity and performance,
+      without unnecessary dependencies.
+    </p>
+
+  </article>
+
+
+  <article class="feature">
+
+    <div class="feature-icon">⊞</div>
+
+    <h3>Windows inspired</h3>
+
+    <p>
+      Familiar visual language inspired by the modern
+      Windows desktop experience.
+    </p>
+
+  </article>
+
+
+  <article class="feature">
+
+    <div class="feature-icon">⌘</div>
+
+    <h3>Customizable</h3>
+
+    <p>
+      Easy to modify and adapt to your own desktop,
+      colors and preferences.
+    </p>
+
+  </article>
+
+
+  <article class="feature">
+
+    <div class="feature-icon">◈</div>
+
+    <h3>Open source</h3>
+
+    <p>
+      Explore the source code, customize it and
+      contribute improvements through GitHub.
+    </p>
+
+  </article>
+
+</div>
+```
+
+  </section>
+
+  <!-- INSTALL -->
+
+  <section class="content-section" id="install">
+
+```
+<div class="section-label">
+  Installation
+</div>
+
+<h2 class="section-title">
+  Get started in seconds.
+</h2>
+
+<p class="section-description">
+  Clone the project and start customizing the theme
+  for your own setup.
+</p>
+
+<div class="install-box">
+
+  <div class="install-header">
+    Terminal
+  </div>
+
+  <pre><span class="command">git clone</span> https://github.com/USERNAME/PROJECT.git
+```
+
+<span class="command">cd</span> PROJECT
+
+<span class="command">npm install</span>
+
+<span class="command">npm run dev</span></pre>
+
+```
+</div>
+```
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+```
+<h2>
+  Make Windows yours.
+</h2>
+
+<p>
+  Explore the project and start building your own experience.
+</p>
+
+<a
+  href="https://github.com/"
+  target="_blank"
+  class="button primary"
+>
+  Explore on GitHub ↗
+</a>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+```
+<span>
+  © 2026 Windows Theme
+</span>
+
+<span>
+  Built with HTML & CSS
+</span>
+```
+
+  </footer>
+
+</body>
+</html>
